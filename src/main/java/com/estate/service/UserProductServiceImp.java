@@ -3,6 +3,7 @@ package com.estate.service;
 import com.estate.entity.ProductEntity;
 import com.estate.entity.UserProduct;
 import com.estate.entity.UsersEntity;
+import com.estate.exception.ProductNotFoundException;
 import com.estate.repo.ProductRepo;
 import com.estate.repo.UserProductRepo;
 import com.estate.repo.UserRepo;
@@ -13,6 +14,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -66,6 +68,26 @@ public class UserProductServiceImp implements UserProductService{
             sendEmailToSeller(user, existingProduct);
         }
     }
+
+    @Override
+    @Transactional
+    public void deleteUserProductByProductId(Long pid) {
+        try {
+            List<UserProduct> userProducts = userProductRepo.findByProductPid(pid);
+
+            if (userProducts.isEmpty()) {
+                throw new ProductNotFoundException("User products with Product ID " + pid + " not found.");
+            }
+
+            for (UserProduct userProduct : userProducts) {
+                userProductRepo.delete(userProduct);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            throw new RuntimeException("Failed to delete products with Product ID " + pid, ex);
+        }
+    }
+
 
     private void sendEmailToSeller(UsersEntity user, ProductEntity product) {
         try {

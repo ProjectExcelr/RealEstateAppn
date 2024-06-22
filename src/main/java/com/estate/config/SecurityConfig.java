@@ -43,7 +43,7 @@ public class SecurityConfig {
         http
                 .csrf(customizer -> customizer.disable())
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/hello", "/welcome", "/init-reg","/register","/auth","/getAllProducts","/product/{pid}","/category/{category}","/products/{address}","/prodName/{pname}","/price/{price}","/prods/{address}/{category}/{price}")
+                        .requestMatchers("/hello", "/welcome", "/init-reg","/register","/auth","/getAllProducts","/product/{pid}","/category/{category}","/products/{address}","/prodName/{pname}","/price/{price}","/prods/{address}/{category}/{price}","/user/{userId}/products/deleteProductByProductId/{pid}")
                         .permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())

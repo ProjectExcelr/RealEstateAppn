@@ -9,4 +9,5 @@ import java.util.List;
 public interface UserProductService {
     void addUserProduct(UserProduct userProduct);
     void addSelectedProductsToUser(UsersEntity user, List<ProductEntity> products);
+    void deleteUserProductByProductId(Long pid);
 }
