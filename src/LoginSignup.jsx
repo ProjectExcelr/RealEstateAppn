@@ -30,7 +30,7 @@ const LoginSignup = () => {
         const password = passwordRef.current.value;
 
         if (!email || !password) {
-            console.error('Email and password are required.');
+            alert('Email and password are required.');
             return;
         }
 

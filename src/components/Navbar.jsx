@@ -26,8 +26,8 @@ function Navbar() {
 
 
   const handleLogout = () => {
-    // localStorage.clear();
-      localStorage.removeItem('token');
+    localStorage.clear();
+    //   localStorage.removeItem('token');
         alert("You have been logged out successfully!!!")
         navigate("/loginsignup");
   };
@@ -47,18 +47,14 @@ function Navbar() {
                 Property
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item as={Link} to="/property-list">Property List</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/property-type">Property Type</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/property-agent">Property Agent</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-            <Dropdown>
-              <Dropdown.Toggle as={Link} to="#" className="nav-link">
-                Pages
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item as={Link} to="/testimonial">Testimonial</Dropdown.Item>
-                <Dropdown.Item as={Link} to="/404">404 Error</Dropdown.Item>
+                <Dropdown.Item href="/apartment">Apartment</Dropdown.Item>
+                <Dropdown.Item href="/villa">Villa</Dropdown.Item>
+                <Dropdown.Item href="/house">House</Dropdown.Item>
+                <Dropdown.Item href="/office">Office</Dropdown.Item>
+                <Dropdown.Item href="/building">Building</Dropdown.Item>
+                <Dropdown.Item href="/townhouse">Townhouse</Dropdown.Item>
+                <Dropdown.Item href="/shop">Shop</Dropdown.Item>
+                <Dropdown.Item href="/garage">Garage</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
             <Link to="/contact" className="nav-item nav-link">Contact</Link>

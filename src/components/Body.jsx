@@ -14,11 +14,18 @@ import PropertyPage from "../PropertyTypes/PropertyPage";
 import UserProfile from "../UserProfile";
 import UpdateProfile from "../UpadateProfile";
 import UserWishlist from "../UserWishlist";
+import About from "./About";
+import SearchPage from "../PropertyTypes/SearchPage";
+import Contact from "./Contact";
+import FAQ from "./FAQ";
+import PrivacyPolicy from "./PrivacyPolicy";
+import TermsAndConditions from "./Termsandconditions";
 const Body=()=>{
     return(
         <>
         <Routes>
             <Route path="/" element={<Home/>}></Route>
+            <Route path="/about" element={<About/>}></Route>
             <Route path="/apartment" element={<Apartment/>}></Route>
             <Route path="/villa" element={<Villa/>}></Route>
             <Route path="/house" element={<House/>}></Route>
@@ -32,6 +39,11 @@ const Body=()=>{
             <Route path="/update-profile" element={<UpdateProfile/>}></Route>
             <Route path="/product/:pid" element={<PropertyPage/>}></Route>
             <Route path="/wishlist" element={<UserWishlist/>}></Route>
+            <Route path="/searchpage" element={<SearchPage/>}></Route>
+            <Route path="/contact" element={<Contact/>}></Route>
+            <Route path="/FAQ" element={<FAQ/>}></Route>
+            <Route path="/privacypolicy" element={<PrivacyPolicy/>}></Route>
+            <Route path="/termsandconditions" element={<TermsAndConditions/>}></Route>
         </Routes>
         </>
     )

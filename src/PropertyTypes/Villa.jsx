@@ -28,11 +28,35 @@ const Villa=()=>{
         fetchProperties();
     }, []);
     
-    const handleWishlistClick = (property) => {
+    const handleWishlistClick =async (property) => {
         if (isInWishlist(property.pid)) {
           removeFromWishlist(property.pid);
         } else {
           addToWishlist(property);
+          try {
+            const userId = localStorage.getItem('userId');
+            const token = localStorage.getItem('token');
+            const userEmail = localStorage.getItem('mailId');
+      
+            if (!userId || !token || !userEmail) {
+              navigate('/loginsignup');
+              return;
+            }
+    
+            const headers = {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            };
+    
+            const res = await axios.post(`http://localhost:8080/${userId}/addSelectedProducts`, [property], {
+              headers: headers,
+            });
+            console.log(res.data);
+            // alert('Add to Wishlsit!');
+          }catch(error){
+            console.error('Error making to add Wishlist:', error);
+            alert('failed to add to Wishlist . Please try again.');
+          }
         }
     };
 

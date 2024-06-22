@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "link": "/property/1",
+        "link": "/product/1",
         "image": "https://static.makaan.com/1/3348821/297/loft-elevation-151701667.jpeg?width=460&height=260",
         "altText": "Luxury Apartment",
         "status": "For Rent",
@@ -15,7 +15,7 @@
     },
     {
         "id": 2,
-        "link": "/property/2",
+        "link": "/product/2",
         "image": "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Apr/27/Photo_h300_w450/72540621_1_1714240915339-87282_300_450.jpg",
         "altText": "Cozy House",
         "status": "For Sale",
@@ -29,7 +29,7 @@
     },
     {
         "id": 3,
-        "link": "/property/3",
+        "link": "/product/3",
         "image": "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Mar/08/Photo_h300_w450/71762569_1_PropertyImage688-0939683620646_300_450.jpg",
         "altText": "Modern Condo",
         "status": "For Rent",
@@ -43,7 +43,7 @@
     },
     {
         "id": 4,
-        "link": "/property/4",
+        "link": "/product/4",
         "image": "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Jan/15/Photo_h300_w450/70928067_4_Room2_300_450.jpg",
         "altText": "Beachfront Villa",
         "status": "For Sale",
@@ -57,7 +57,7 @@
     },
     {
         "id": 5,
-        "link": "/property/5",
+        "link": "/product/5",
         "image": "https://img.staticmb.com/mbphoto/property/cropped_images/2024/Mar/04/Photo_h300_w450/71699699_1_PropertyImage408-69165578704224_300_450.jpg",
         "altText": "Suburban Home",
         "status": "For Sale",
@@ -71,7 +71,7 @@
     },
     {
         "id": 6,
-        "link": "/property/6",
+        "link": "/product/6",
         "image": "https://img.staticmb.com/mbphoto/property/cropped_images/2024/May/03/Photo_h300_w450/72627431_14_PropertyImage773-3141689032213_300_450.jpg",
         "altText": "Urban Studio",
         "status": "For Rent",

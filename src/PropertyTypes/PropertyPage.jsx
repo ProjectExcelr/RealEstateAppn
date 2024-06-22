@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useParams } from "react-router";
 import { useWishlist } from "../WishlistContext";
+import { useNavigate } from 'react-router-dom';
 
 const PropertyPage = () => {
   const { pid } = useParams();
@@ -9,6 +10,7 @@ const PropertyPage = () => {
   const [property, setProperty] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProperty = async () => {
@@ -26,16 +28,41 @@ const PropertyPage = () => {
     fetchProperty();
   }, [pid]);
 
-  const handleWishlistClick = (property) => {
+  const handleWishlistClick = async (property) => {
     if (isInWishlist(property.pid)) {
       removeFromWishlist(property.pid);
     } else {
       addToWishlist(property);
+      try {
+        const userId = localStorage.getItem('userId');
+        const token = localStorage.getItem('token');
+        const userEmail = localStorage.getItem('mailId');
+  
+        if (!userId || !token || !userEmail) {
+          navigate('/loginsignup');
+          return;
+        }
+
+        const headers = {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        };
+
+        const res = await axios.post(`http://localhost:8080/${userId}/addSelectedProducts`, [property], {
+          headers: headers,
+        });
+
+
+        console.log(res.data);
+      }catch(error){
+        console.error('Error making to add Wishlist:', error);
+        alert('failed to add to Wishlist . Please try again.');
+      }
     }
   };
 
   return (
-    <section className="vh-100">
+    <section>
       <div className="container h-100">
         {loading && <p>Loading property...</p>}
         {error && <p className="text-danger">{error}</p>}

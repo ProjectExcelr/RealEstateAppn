@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import { useWishlist } from "../WishlistContext";
@@ -10,6 +10,7 @@ const Building=()=>{
     const [properties, setProperties] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProperties = async () => {
@@ -28,11 +29,34 @@ const Building=()=>{
         fetchProperties();
     }, []);
 
-    const handleWishlistClick = (property) => {
+    const handleWishlistClick =async (property) => {
         if (isInWishlist(property.pid)) {
           removeFromWishlist(property.pid);
         } else {
           addToWishlist(property);
+          try {
+            const userId = localStorage.getItem('userId');
+            const token = localStorage.getItem('token');
+            const userEmail = localStorage.getItem('mailId');
+      
+            if (!userId || !token || !userEmail) {
+              navigate('/loginsignup');
+              return;
+            }
+    
+            const headers = {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            };
+    
+            const res = await axios.post(`http://localhost:8080/${userId}/addSelectedProducts`, [property], {
+              headers: headers,
+            });
+            console.log(res.data);
+          }catch(error){
+            console.error('Error making to add Wishlist:', error);
+            alert('failed to add to Wishlist . Please try again.');
+          }
         }
     };
         return(

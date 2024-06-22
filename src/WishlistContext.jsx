@@ -14,16 +14,14 @@ export const WishlistProvider = ({ children }) => {
     }, [wishlist]);
   
     const addToWishlist = (product) => {
-      const updatedWishlist = [...wishlist, { product, count: 1 }]; // Ensure each item has a 'product' and 'count' property
+      const updatedWishlist = [...wishlist, { product, count: 1 }]; 
       setWishlist(updatedWishlist);
     };
   
     const removeFromWishlist = (productId) => {
-      // Find the first occurrence of the product in the cart
       const indexToRemove = wishlist.findIndex((item) => item.product.pid === productId);
   
       if (indexToRemove !== -1) {
-        // Create a new cart array with the item removed
         const updatedWishlist = [...wishlist];
         updatedWishlist.splice(indexToRemove, 1);
         setWishlist(updatedWishlist);

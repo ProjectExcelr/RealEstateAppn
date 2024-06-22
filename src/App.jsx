@@ -4,7 +4,8 @@ import Search from './components/Search';
 import Spinner from './components/Spinner';
 import BackToTop from './components/BackToTop';
 import Body from './components/Body';
-
+import Footer from './components/Footer';
+import "./App.css"
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Search />
       <Body/>
       <BackToTop />
+      <Footer/>
     </div>
   );
 }
