@@ -193,4 +193,34 @@ public class ProductServiceImp implements ProductService{
             throw new RuntimeException("Failed to fetch products"+ex);
         }
     }
+
+    @Override
+    public List<ProductEntity> searchByAddressCategory(String address, String category) {
+        try{
+            return productRepo.findByAddressContainingAndCategoryContaining(address, category);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            throw new RuntimeException("Failed to fetch products"+ex);
+        }
+    }
+
+    @Override
+    public List<ProductEntity> searchByAddressPrice(String address, Double price) {
+        try{
+            return productRepo.findByAddressContainingAndPriceLessThanEqual(address, price);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            throw new RuntimeException("Failed to fetch products"+ex);
+        }
+    }
+
+    @Override
+    public List<ProductEntity> searchByCategoryPrice(String category, Double price) {
+        try{
+            return productRepo.findByCategoryContainingAndPriceLessThanEqual(category, price);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            throw new RuntimeException("Failed to fetch products"+ex);
+        }
+    }
 }

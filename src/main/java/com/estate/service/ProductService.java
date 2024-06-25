@@ -17,4 +17,7 @@ public interface ProductService {
     List<ProductEntity> searchByPname(String pname);
     List<ProductEntity> searchByPrice(Double price);
     List<ProductEntity> searchByAddressCategoryPrice(String address,String category,Double price);
+    List<ProductEntity> searchByAddressCategory(String address,String category);
+    List<ProductEntity> searchByAddressPrice(String address,Double price);
+    List<ProductEntity> searchByCategoryPrice(String category,Double price);
 }

@@ -193,4 +193,52 @@ public class ProductController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/prods/address-category/{address}/{category}")
+    public ResponseEntity<List<ProductEntity>> getProdsByAddressCategory(@PathVariable String address, @PathVariable String category){
+        try{
+            List<ProductEntity> product = productService.searchByAddressCategory(address, category);
+
+            if(product.isEmpty()){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }else {
+                return new ResponseEntity<>(product,HttpStatus.OK);
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/prods/address-price/{address}/{price}")
+    public ResponseEntity<List<ProductEntity>> getProdsByAddressPrice(@PathVariable String address,@PathVariable Double price){
+        try{
+            List<ProductEntity> product = productService.searchByAddressPrice(address, price);
+
+            if(product.isEmpty()){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }else {
+                return new ResponseEntity<>(product,HttpStatus.OK);
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/prods/category-price/{category}/{price}")
+    public ResponseEntity<List<ProductEntity>> getProdsByCategoryPrice(@PathVariable String category,@PathVariable Double price){
+        try{
+            List<ProductEntity> product = productService.searchByCategoryPrice( category, price);
+
+            if(product.isEmpty()){
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }else {
+                return new ResponseEntity<>(product,HttpStatus.OK);
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
