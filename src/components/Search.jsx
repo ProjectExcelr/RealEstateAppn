@@ -22,7 +22,13 @@ function Search() {
         response = await axios.get(`http://localhost:8080/price/${price}`);
       } else if (address && category && price) {
         response = await axios.get(`http://localhost:8080/prods/${address}/${category}/${price}`);
-      } else {
+      } else if (address && category && !price) {
+        response = await axios.get(`http://localhost:8080/prods/address-category/${address}/${category}`);
+      }else if (address && !category && price) {
+        response = await axios.get(`http://localhost:8080/prods/address-price/${address}/${price}`);
+      }else if (!address && category && price) {
+        response = await axios.get(`http://localhost:8080/prods/category-price/${category}/${price}`);
+      }else {
         console.error("Invalid search criteria");
         return;
       }

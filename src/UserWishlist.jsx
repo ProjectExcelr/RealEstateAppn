@@ -35,7 +35,7 @@ const UserWishlist = () => {
 
   const handleRemove = async (pid) => {
     try {
-      await axios.delete(`http://localhost:8080/user/${userId}/products/deleteProduct/${pid}`, {
+      await axios.delete(`http://localhost:8080/user/${userId}/products/deleteProductByProductId/${pid}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

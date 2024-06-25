@@ -29,36 +29,39 @@ const Building=()=>{
         fetchProperties();
     }, []);
 
-    const handleWishlistClick =async (property) => {
+    const handleWishlistClick = async (property) => {
+        const userId = localStorage.getItem('userId');
+        const token = localStorage.getItem('token');
+        const userEmail = localStorage.getItem('mailId');
+    
+        if (!userId || !token || !userEmail) {
+          navigate('/loginsignup');
+          return;
+        }
+    
+        const headers = {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        };
+    
         if (isInWishlist(property.pid)) {
           removeFromWishlist(property.pid);
+          try {
+            await axios.delete(`http://localhost:8080/user/${userId}/products/deleteProductByProductId/${property.pid}`, { headers });
+          } catch (error) {
+            console.error('Error removing from wishlist:', error);
+            alert('Failed to remove from wishlist. Please try again.');
+          }
         } else {
           addToWishlist(property);
           try {
-            const userId = localStorage.getItem('userId');
-            const token = localStorage.getItem('token');
-            const userEmail = localStorage.getItem('mailId');
-      
-            if (!userId || !token || !userEmail) {
-              navigate('/loginsignup');
-              return;
-            }
-    
-            const headers = {
-              'Authorization': `Bearer ${token}`,
-              'Content-Type': 'application/json',
-            };
-    
-            const res = await axios.post(`http://localhost:8080/${userId}/addSelectedProducts`, [property], {
-              headers: headers,
-            });
-            console.log(res.data);
-          }catch(error){
-            console.error('Error making to add Wishlist:', error);
-            alert('failed to add to Wishlist . Please try again.');
+            await axios.post(`http://localhost:8080/${userId}/addSelectedProducts`, [property], { headers });
+          } catch (error) {
+            console.error('Error adding to wishlist:', error);
+            alert('Failed to add to wishlist. Please try again.');
           }
         }
-    };
+      };
         return(
             <>
             <div className="container-xxl py-5">

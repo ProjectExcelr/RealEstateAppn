@@ -13,7 +13,7 @@ function Categories() {
           <div className="col-lg-3 col-sm-6 ">
               <Link to="/apartment"><a className="cat-item d-block bg-light text-center rounded p-3" href="">
                   <div className="rounded p-4">
-                    <div className="icon mb-3">
+                    <div className="icon mb-3 mx-3">
                       <img className="img-fluid" src="/assets/icon-apartment.png" alt="Icon" />
                     </div>
                     <h6>Apartment</h6>
@@ -24,7 +24,7 @@ function Categories() {
           <div className="col-lg-3 col-sm-6 ">
               <Link to="/villa"><a className="cat-item d-block bg-light text-center rounded p-3" href="">
                   <div className="rounded p-4">
-                    <div className="icon mb-3">
+                    <div className="icon mb-3 mx-3">
                       <img className="img-fluid" src="/assets/icon-villa.png" alt="Icon" />
                     </div>
                     <h6>Villa</h6>
@@ -35,7 +35,7 @@ function Categories() {
           <div className="col-lg-3 col-sm-6 ">
               <Link to="/house"><a className="cat-item d-block bg-light text-center rounded p-3" href="">
                   <div className="rounded p-4">
-                    <div className="icon mb-3">
+                    <div className="icon mb-3 mx-3">
                       <img className="img-fluid" src="/assets/icon-house.png" alt="Icon" />
                     </div>
                     <h6>House</h6>
@@ -46,7 +46,7 @@ function Categories() {
           <div className="col-lg-3 col-sm-6 ">
               <Link to="/office"><a className="cat-item d-block bg-light text-center rounded p-3" href="">
                   <div className="rounded p-4">
-                    <div className="icon mb-3">
+                    <div className="icon mb-3 mx-3">
                       <img className="img-fluid" src="/assets/icon-housing.png" alt="Icon" />
                     </div>
                     <h6>Office</h6>
@@ -57,7 +57,7 @@ function Categories() {
           <div className="col-lg-3 col-sm-6 ">
               <Link to="/building"><a className="cat-item d-block bg-light text-center rounded p-3" href="">
                   <div className="rounded p-4">
-                    <div className="icon mb-3">
+                    <div className="icon mb-3 mx-3">
                       <img className="img-fluid" src="/assets/icon-building.png" alt="Icon" />
                     </div>
                     <h6>Building</h6>
@@ -68,7 +68,7 @@ function Categories() {
           <div className="col-lg-3 col-sm-6 ">
               <Link to="/townhouse"><a className="cat-item d-block bg-light text-center rounded p-3" href="">
                   <div className="rounded p-4">
-                    <div className="icon mb-3">
+                    <div className="icon mb-3 mx-3">
                       <img className="img-fluid" src="/assets/icon-neighborhood.png" alt="Icon" />
                     </div>
                     <h6>Townhouse</h6>
@@ -79,7 +79,7 @@ function Categories() {
           <div className="col-lg-3 col-sm-6 ">
               <Link to="/shop"><a className="cat-item d-block bg-light text-center rounded p-3" href="">
                   <div className="rounded p-4">
-                    <div className="icon mb-3">
+                    <div className="icon mb-3 mx-3">
                       <img className="img-fluid" src="/assets/icon-condominium.png" alt="Icon" />
                     </div>
                     <h6>Shop</h6>
@@ -90,7 +90,7 @@ function Categories() {
           <div className="col-lg-3 col-sm-6 ">
               <Link to="/garage"><a className="cat-item d-block bg-light text-center rounded p-3" href="">
                   <div className="rounded p-4">
-                    <div className="icon mb-3">
+                    <div className="icon mb-3 mx-3">
                       <img className="img-fluid" src="/assets/icon-luxury.png" alt="Icon" />
                     </div>
                     <h6>Garage</h6>
